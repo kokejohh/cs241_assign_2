@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <set>
 
 using namespace std;
 
@@ -8,21 +7,22 @@ int isCorrect(int cats[], int cat, int n);
 void printArray(const char *message, int arr[], int n);
 
 int main()
-{	
+{
 	int n;
 	
 	cout << "input n:" ;
 	cin >> n;
 	
-	set<int> setCats;
-	int cats[n], newCats[n], status[n], flag = 0;
+	int cats[n], newCats[n], sortCats[n], status[n], flag = 0;
 	
 	for (int i = 0; i < n; i++)
 	{	
 		cin >> cats[i];
-		setCats.insert(cats[i]);
+		sortCats[i] = cats[i];
 		status[i] = newCats[i] = 0;
 	}
+	sort(sortCats, sortCats + n);
+	
 	printArray("cat", cats, n);
 	cout << endl;
 	
@@ -32,9 +32,9 @@ int main()
 		cout << "box size : " << 0 << endl;
 		return 0;
 	}
-	for (set<int>::iterator c = setCats.begin(); c != setCats.end(); c++)
+	for (int i = 0; i < n; i+=2)
 	{
-		int count = 0, cat = *c;
+		int count = 0, cat = sortCats[i];
 		for (int j = 0; j < n; j++)
 			status[j] = newCats[j] = 0;
 		for (int j = 0; j < n - 1; j++)
