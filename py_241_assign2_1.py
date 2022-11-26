@@ -19,8 +19,8 @@ class State:
             if (cats[i].getSize() != cats[i + 1].getSize()): return False
         return True
     def findMinBox(self):
-        if (self.correct(self.cats)): return 0
         cats = self.cats
+        if (self.correct(cats)): return 0
         for size in set(cat.getSize() for cat in cats):
             new_cats = []
             for cat in cats:
