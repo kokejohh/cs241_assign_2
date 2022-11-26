@@ -8,17 +8,19 @@ class Cat:
     def setIsMove(self, is_move): self.is_move = is_move
     def getSize(self): return self.size
     def getIsMove(self): return self.is_move
-    
+def test():
+    print('test')
 class State:
     def __init__(self):
         self.cats = []
     def append(self, cat):
         self.cats.append(cat)
     def correct(self, cats):
-        for i in range(0, (len(cats)), 2):
+        for i in range(0, len(cats), 2):
             if (cats[i].getSize() != cats[i + 1].getSize()): return False
         return True
     def findMinBox(self):
+        test()
         cats = self.cats
         if (self.correct(cats)): return 0
         for size in set(cat.getSize() for cat in cats):
