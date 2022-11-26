@@ -23,10 +23,10 @@ class State:
         cats = self.cats
         for size in set(cat.getSize() for cat in cats):
             new_cats = []
-            for i in range(len(cats)):
-                if (cats[i].getSize() <= size): cats[i].setIsMove(True)
-            for i in range(len(cats)):
-                if (cats[i].getIsMove() == False): new_cats.append(Cat(cats[i].getSize()))
+            for cat in cats:
+                if (cat.getIsMove() == False and cat.getSize() <= size): cat.setIsMove(True)
+            for cat in cats:
+                if (cat.getIsMove() == False): new_cats.append(Cat(cat.getSize()))
             if (self.correct(new_cats)):
                 return size
 
