@@ -17,8 +17,3 @@ for size in setCat:
         break
     cats = remainCat(cats, size)
     ans = size
- 
-        
-
-
-
