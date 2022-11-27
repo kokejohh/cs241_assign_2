@@ -22,7 +22,8 @@ class State:
         setCat = set(cat.getSize() for cat in cats)
         for size in setCat:
             if (self.correct(cats)): return ans
-            for cat in cats: if (cat.getSize() <= size): cat.setIsMove(True)
+            for cat in cats:
+                if (cat.getSize() <= size): cat.setIsMove(True) 
             cats = [Cat(cat.getSize()) for cat in cats if cat.getIsMove() == False]
             ans = size
 
