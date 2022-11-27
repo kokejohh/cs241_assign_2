@@ -1,8 +1,7 @@
-n = int(input('input n: '))
-
 def findIndex(arr, value):
     return (i for i in range(len(arr)) if arr[i] == value)
 
+n = int(input('input n: '))
 cats = []
 for i in range(n):
     cats.append(int(input()))
@@ -17,4 +16,4 @@ for size in setCat:
         ans = tmp_max if (tmp_max > ans) else ans
         break
 print(ans)
-    
+
