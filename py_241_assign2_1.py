@@ -1,11 +1,11 @@
 class Cat:
     def __init__(self, size, is_move=False):
-        self.size = size
-        self.is_move = is_move
-    def setSize(self, size): self.size = size
-    def setIsMove(self, is_move): self.is_move = is_move
-    def getSize(self): return self.size
-    def getIsMove(self): return self.is_move
+        self.__size = size
+        self.__is_move = is_move
+    def setSize(self, size): self.__size = size
+    def setIsMove(self, is_move): self.__is_move = is_move
+    def getSize(self): return self.__size
+    def getIsMove(self): return self.__is_move
 
 class State:
     def __init__(self):
