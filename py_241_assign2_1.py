@@ -1,5 +1,3 @@
-#Pitchakorn Thiprangsi
-#6309682091
 class Cat:
     def __init__(self, size, is_move=False):
         self.size = size
@@ -19,20 +17,17 @@ class State:
             if (cats[i].getSize() != cats[i + 1].getSize()): return False
         return True
     def findMinBox(self):
+        ans = 0
         cats = self.cats
-        if (self.correct(cats)): return 0
-        for size in set(cat.getSize() for cat in cats):
-            new_cats = []
-            for cat in cats:
-                if (cat.getIsMove() == False and cat.getSize() <= size): cat.setIsMove(True)
-            for cat in cats:
-                if (cat.getIsMove() == False): new_cats.append(Cat(cat.getSize()))
-            if (self.correct(new_cats)):
-                return size
+        setCat = set(cat.getSize() for cat in cats)
+        for size in setCat:
+            if (self.correct(cats)): return ans
+            for cat in cats: if (cat.getSize() <= size): cat.setIsMove(True)
+            cats = [Cat(cat.getSize()) for cat in cats if cat.getIsMove() == False]
+            ans = size
 
 n = int(input('input n : '))
 state = State()
-for i in range(n):
-    state.append(Cat(int(input())))
+for i in range(n): state.append(Cat(int(input())))
 print(state.findMinBox())
 
